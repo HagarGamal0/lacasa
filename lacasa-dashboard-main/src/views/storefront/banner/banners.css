@@ -1,0 +1,11 @@
+.banner-layout{
+    max-width: 50px;
+    border-radius: 50%;
+}
+#close__modal-button:hover{
+    cursor:pointer;
+}
+#close__modal-button{
+    font-size:20px;
+    text-align: right;
+}

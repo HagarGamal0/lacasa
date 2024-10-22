@@ -1,0 +1,12 @@
+.actions-btn{
+    display: none;
+}
+.btn-light{
+    background-color: white;
+    border:1px solid #c9c9c9;
+
+}
+.btn-light:hover{
+    background-color: white;
+    border:1px solid #c9c9c9;
+}

@@ -1,0 +1,12 @@
+/* This file is reserved for overriding and extending the template styles. */
+.hidden{
+    display:none;
+}
+.button_no_style{
+    background: none;
+    border:none;
+    text-align: left;
+}
+.ReactModal__Overlay{
+    background-color:rgba(0,0,0,.5)!important;
+}
