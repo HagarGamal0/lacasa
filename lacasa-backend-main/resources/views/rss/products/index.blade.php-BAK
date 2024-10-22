@@ -1,0 +1,32 @@
+<?=
+/* Using an echo tag here so the `<? ... ?>` won't get parsed as short tags */
+'<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL
+?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <atom:link href="https://lacasa-egy.com" rel="self" type="application/rss+xml" />
+        <title><![CDATA[La Casa]]></title>
+        <link><![CDATA[https://lacasa-egy.com]]></link>
+        <description><![CDATA[Lacasa RSS Feeds]]></description>
+        <language>en</language>
+        <pubDate>{{ now() }}</pubDate>
+
+        @foreach($products as $product)
+            <item>
+                <g:id>{{ $product->id }}></g:id>
+                <g:title><![CDATA[{{ $product->name }}]]></g:title>
+                <g:description><![CDATA[{{ $product->description }}]]></g:description>
+                <g:item_group_id>{{$product->categories()?->first()?->id}}</g:item_group_id>
+                <g:link><![CDATA[{{config('app.url')}}/{{$product->slug}}]]></g:link>
+                <g:product_type><![CDATA[{{$product->categories()?->first()?->name}}]]></g:product_type>
+                <g:fb_product_category><![CDATA[{{$product->categories()?->first()?->name}}]]></g:fb_product_category>
+                <g:image_link><![CDATA[{{ $product->images()?->first()?->url }}]]></g:image_link>
+                <g:condition>new</g:condition>
+                <g:availability>in stock</g:availability>
+                <g:price><![CDATA[{{$product->price}}]]></g:price>
+                <g:sale_price><![CDATA[{{$product->price_after_sale}}]]></g:sale_price>
+                <g:identifier_exists>no</g:identifier_exists>
+            </item>
+        @endforeach
+    </channel>
+</rss>
